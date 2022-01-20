@@ -42,4 +42,3 @@ process.on('exit', () => {
         volte mais tarde para novas reflexões!
     `)
 })
-
