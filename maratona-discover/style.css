@@ -1,5 +1,5 @@
 /* Global =================================================== */
-/referencia a raiz/
+/*referencia a raiz*/
 :root {
     --dark-blue: #363f5f;
 }
@@ -10,9 +10,26 @@
     box-sizing: border-box;
 }
 
+html {
+    font-size: 93.75%;
+}
+
 body {
     background: #f0f2f5;
     font-family: 'Poppins', sans-serif;
+}
+
+/*Mantendo visível somente para o leitor de tela*/
+.sr-only{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border-width: 0;
 }
 
 .container {
@@ -28,6 +45,24 @@ h2 {
     color: var(--dark-blue);
     font-weight: normal;
 }
+
+/* Links & Buttons =================================================== */
+
+a {
+    text-decoration: none;
+    color: #49AA26;
+
+}
+
+a:hover {
+    color: #3dd705;
+}
+
+.button.new {
+    display: inline-block;
+    margin-bottom: .8rem;
+}
+
 
 /* Header =================================================== */
 
@@ -66,6 +101,9 @@ header {
 .card h3 {
     font-weight: normal;
     font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .card p {
@@ -81,10 +119,16 @@ header {
 
 /* Table =================================================== */
 
+#transaction {
+    display: block;
+    width: 100%;
+    overflow-x:auto; /*Serva para rolar em mobile*/
+}
+
 #data-table {
     width: 100%;
     border-spacing: 0 0.5rem;
-    color: #969cb3;
+    /* color: #969cb3; */
 }
 
 table th {
@@ -106,8 +150,14 @@ table tbody tr:hover {
     opacity: 1;
 }
 
-table thead tr th:first-child, table tbody tr td:first-child {
+table thead tr th:first-child, 
+table tbody tr td:first-child{
     border-radius: 0.25rem 0 0 0.25rem;
+}
+
+table thead tr th:last-child, 
+table tbody tr td:last-child {
+    border-radius: 0 0.25rem 0.25rem 0;
 }
 
 td.description, td.date {
@@ -122,6 +172,28 @@ td.expense {
     color: #e92929;
 }
 
+/* Modal =================================================== */
+.modal-overlay {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    position: fixed; /*Mascara de posicionamento modal*/
+    top: 0;  /*Mascara de posicionamento modal*/
+    display: flex; /*Ajuste do tamanho da caixa do modal*/
+    align-items: center; /*Ajuste do tamanho da caixa do modal*/
+    justify-content: center; /*Ajuste do tamanho da caixa do modal*/
+}
+
+.modal-overlay.active {
+    opacity: 0;
+    visibility: visible;
+}
+
+.modal {
+    background-color: #F0F2f5;
+    padding: 2.4rem;
+}
+
 
 /* Footer =================================================== */
 
@@ -130,4 +202,19 @@ footer {
     padding: 4rem 0 2rem;
     color: var(--dark-blue);
     opacity: 0.6;
+}
+
+/* Responsive =================================================== */
+@media (min-width: 800px) {
+    html {
+        font-size: 87.5%;
+    }
+
+    #balance {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+
+    }
+
 }
