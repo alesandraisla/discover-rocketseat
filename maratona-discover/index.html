@@ -62,7 +62,7 @@
             <div class="modal">
                 <div id="form">
                     <h2>Nova transação</h2>
-                    <form action="">
+                    <form action="" onsubmit="Form.submit(event)">
                         <div class="input-group">
                             <label class="sr-only" for="description">Descrição</label>
                             <input 
@@ -73,12 +73,12 @@
                             />
                         </div>
                         <div class="input-group">
-                            <label class="sr-only" for="amout">Valor</label>
+                            <label class="sr-only" for="amount">Valor</label>
                             <input 
                             type="number" 
                             step="0.01"
-                            id="amout" 
-                            name="amout"
+                            id="amount" 
+                            name="amount"
                             placeholder="0,00"
                             />
                             <small class="help">
@@ -96,7 +96,7 @@
                         <div class="input-group actions">
                             <a 
                             onclick="Modal.close()"
-                            href="" 
+                            href="#" 
                             class="button cancel">Cancelar</a>
                             <button>Salvar</button>
                         </div>
@@ -105,7 +105,7 @@
             </div>
         </div>
         <footer>
-            dev.finance$
+            <p>dev.finance$</p>
         </footer>
         <script src="./script.js"></script>
     </body>
